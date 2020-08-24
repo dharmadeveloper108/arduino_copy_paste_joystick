@@ -33,21 +33,19 @@ void loop() {
   mapX = map(xPosition, 0, 1023, -512, 512);
   mapY =  map(yPosition, 0, 1023, -512, 512);
 
-  Serial.print("X: ");
-  Serial.print(mapX);
-  Serial.print(" | Y: ");
+  Serial.print("Y: ");
   Serial.print(mapY);
-  Serial.print(" | Button: ");
-  Serial.println(SW_state);
 
   switch(mapY) {
     case -512:
+    Serial.print("UP => copy");
     Keyboard.press(ctrlKey);
     Keyboard.press('c');
     delay(100);
     Keyboard.releaseAll();
     break;
     case 512:
+    Serial.print("DOWN => paste");
     Keyboard.press(ctrlKey);
     Keyboard.press('v');
     delay(100);
